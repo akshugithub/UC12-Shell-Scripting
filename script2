@@ -1,0 +1,38 @@
+validation(){
+        if ! [[ "$ver" =~ ^[0-9]+$ ]]
+        then
+        echo "Sorry integers only"
+
+       else
+        find . -newermt "${OPTARG} day ago" -exec du -h {} \;
+      fi
+             }
+
+
+
+while getopts ":i:d:h" OPTION; do
+        case "$OPTION" in
+
+                i)
+                  ver=$OPTARG
+                   validation "$ver"
+                    ;;
+
+                   
+                h)
+                        echo " -i   the number of days as input "
+                        echo " -h   help"
+                        exit 1
+                        ;;
+
+
+                :)
+                     echo "Argument needed, input required"
+                     exit 1
+                       ;;
+                *)
+                   echo " enter -h for help"
+                   exit 1
+                   ;;            
+        esac
+done
