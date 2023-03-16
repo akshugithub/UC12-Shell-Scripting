@@ -1,0 +1,2 @@
+./files.sh -d /files/ -s 20230316 -e 20230316
+<filename.sh> -d /<dir>/ -s <startdate> -e <enddate>
